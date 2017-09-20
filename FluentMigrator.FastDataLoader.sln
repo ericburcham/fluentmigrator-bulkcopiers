@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.0.0
+MinimumVisualStudioVersion = 10.0.0.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentMigrator.FastDataLoader", "src\FluentMigrator.FastDataLoader\FluentMigrator.FastDataLoader.csproj", "{454BB3CD-3D4D-4F9A-B8E0-97095D177818}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{454BB3CD-3D4D-4F9A-B8E0-97095D177818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{454BB3CD-3D4D-4F9A-B8E0-97095D177818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{454BB3CD-3D4D-4F9A-B8E0-97095D177818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{454BB3CD-3D4D-4F9A-B8E0-97095D177818}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
