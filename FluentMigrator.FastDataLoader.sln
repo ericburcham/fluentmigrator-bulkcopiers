@@ -5,6 +5,11 @@ VisualStudioVersion = 12.0.0.0
 MinimumVisualStudioVersion = 10.0.0.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentMigrator.FastDataLoader", "src\FluentMigrator.FastDataLoader\FluentMigrator.FastDataLoader.csproj", "{454BB3CD-3D4D-4F9A-B8E0-97095D177818}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5C793CF5-4443-48F7-9DF2-608D4EF9EF10}"
+ProjectSection(SolutionItems) = preProject
+	src\FluentMigrator.FastDataLoader.snk = src\FluentMigrator.FastDataLoader.snk
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
