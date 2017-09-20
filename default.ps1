@@ -1,7 +1,7 @@
 # Shared variables --------------------------------------------------------------------------------
 $msbuildExe = Get-Item "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe"
 $nugetExe = Get-Item ".\.nuget\nuget.exe"
-$packageDirectory = ".\packages"
+$packageDirectory = ".\nuget packages"
 $reflectionsProject = ".\src\FluentMigrator.FastDataLoader\FluentMigrator.FastDataLoader.csproj"
 $solutionFile = ".\FluentMigrator.FastDataLoader.sln"
 
@@ -87,16 +87,16 @@ task CleanAll -description "Runs 'git clean -xdf.'  Prompts first if untracked f
     }
 }
 
-task Pack -description "Packs Funky as a nuget package." {
+task Pack -description "Packs FluentMigrator.FastDataLoader as a nuget package." {
     Delete-Directory $packageDirectory
     Create-Directory $packageDirectory
     exec { & $nugetExe pack $reflectionsProject -OutputDirectory $packageDirectory -Prop Configuration=Release -Symbols }
 }
 
-task PackWithPrerequisites -description "Packs Funky as a nuget package.  Runs prerequisites first." -depends CleanAll, RestorePackages, BuildDebug, BuildRelease, Pack
+task PackWithPrerequisites -description "Packs FluentMigrator.FastDataLoader as a nuget package.  Runs prerequisites first." -depends CleanAll, RestorePackages, BuildDebug, BuildRelease, Pack
 
-task Push -description "Pushes Funky to nuget.org." {
-    $packages = Get-ChildItem $packageDirectory\Funky.*.nupkg
+task Push -description "Pushes FluentMigrator.FastDataLoader to nuget.org." {
+    $packages = Get-ChildItem $packageDirectory\FluentMigrator.FastDataLoader.*.nupkg
     foreach ($package in $packages)
     {
         exec { & $nugetExe push $package.FullName }
