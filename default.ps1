@@ -99,7 +99,7 @@ task Push -description "Pushes FluentMigrator.FastDataLoader to nuget.org." {
     $packages = Get-ChildItem $packageDirectory\FluentMigrator.FastDataLoader.*.nupkg
     foreach ($package in $packages)
     {
-        exec { & $nugetExe push $package.FullName }
+        exec { & $nugetExe push $package.FullName -Source https://www.nuget.org/api/v2/package }
     }
 }
 
