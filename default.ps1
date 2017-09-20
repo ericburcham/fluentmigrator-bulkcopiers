@@ -1,6 +1,6 @@
 # Shared variables --------------------------------------------------------------------------------
 $msbuildExe = Get-Item "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe"
-$nugetExe = Get-Item ".\src\.nuget\NuGet.exe"
+$nugetExe = Get-Item ".\.nuget\nuget.exe"
 $packageDirectory = ".\packages"
 $reflectionsProject = ".\src\FluentMigrator.FastDataLoader\FluentMigrator.FastDataLoader.csproj"
 $solutionFile = ".\FluentMigrator.FastDataLoader.sln"
