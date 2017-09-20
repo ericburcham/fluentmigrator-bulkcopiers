@@ -62,13 +62,13 @@ task BuildRelease -description "Builds FluentMigrator.FastDataLoader.sln in the 
 
 task BuildReleaseWithPrerequisites -description "Builds FluentMigrator.FastDataLoader.sln in the debug configuration.  Runs prerequisite steps first." -depends RestorePackages, BuildRelease
 
-task CleanAll -description "Runs a git clean -xdf.  Prompts first if untracked files are found." {
+task CleanAll -description "Runs 'git clean -xdf.'  Prompts first if untracked files are found." {
     $gitStatus = (@(git status --porcelain) | Out-String)
 
     IF ($gitStatus.Contains("??"))
     {
-        Write-Host "About to delete any untracked files.  Press 'Y' to continue or any other key to cancel." -foregroundcolor "yellow"
-        $continue = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyUp").Character
+        Write-Host "About to delete any untracked files.  Press 'Y' to continue or any other key to cancel." -ForegroundColor "yellow"
+        $continue = $host.UI.RawUI.ReadKey().Character
         IF ($continue -ne "Y" -and $continue -ne "y")
         {
             Write-Error "CleanAll canceled."
