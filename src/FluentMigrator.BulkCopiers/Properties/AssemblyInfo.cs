@@ -30,15 +30,7 @@ using System.Runtime.InteropServices;
 [assembly: AllowPartiallyTrustedCallers]
 [assembly: AssemblyCompany("Eric Burcham")]
 
-#if DEBUG
-[assembly: AssemblyConfiguration("Debug")]
-#else
-[assembly: AssemblyConfiguration("Release")]
-#endif
-
-[assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyDescription("A set of fast exporters and importers for FluentMigrator.")]
-[assembly: AssemblyProduct("FluentMigrator Bulk Copiers")]
 [assembly: AssemblyTitle("FluentMigrator.BulkCopiers")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

@@ -2,9 +2,14 @@
 using System.Reflection;
 using System;
 
-[assembly: AssemblyConfigurationAttribute("Debug")]
+#if DEBUG
+[assembly: AssemblyConfiguration("Debug")]
+#else
+[assembly: AssemblyConfiguration("Release")]
+#endif
+
 [assembly: AssemblyCopyright("Copyright - Eric Burcham 2017")]
-[assembly: AssemblyProduct("FluentMigrator.BulkCopiers")]
+[assembly: AssemblyProduct("FluentMigrator Bulk Copiers")]
 [assembly: CLSCompliant(true)]
 
 
