@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentMigrator.BulkCopiers.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentMigrator.BulkCopiers.IntegrationTests", "src\FluentMigrator.BulkCopiers.IntegrationTests\FluentMigrator.BulkCopiers.IntegrationTests.csproj", "{4B2B0023-ADA7-43D6-9DA6-C31BFB1D0C19}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6BD57860-7428-4202-A4F4-25A3CBD58032}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{74A1DF67-5D00-4FC7-A382-F40BB39DBD7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +52,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4B2B0023-ADA7-43D6-9DA6-C31BFB1D0C19} = {6BD57860-7428-4202-A4F4-25A3CBD58032}
+		{CD29D263-8A95-4272-8051-DCC64370E93A} = {6BD57860-7428-4202-A4F4-25A3CBD58032}
+		{454BB3CD-3D4D-4F9A-B8E0-97095D177818} = {74A1DF67-5D00-4FC7-A382-F40BB39DBD7F}
 	EndGlobalSection
 EndGlobal
