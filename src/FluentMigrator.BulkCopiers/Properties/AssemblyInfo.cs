@@ -22,10 +22,29 @@
 
 using System.Reflection;
 using System.Security;
+using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FluentMigrator.BulkCopiers")]
-[assembly: AssemblyDescription("A set of fast exporters and importers for FluentMigrator.")]
 [assembly: AllowPartiallyTrustedCallers]
+[assembly: AssemblyCompany("Eric Burcham")]
+
+#if DEBUG
+[assembly: AssemblyConfiguration("Debug")]
+#else
+[assembly: AssemblyConfiguration("Release")]
+#endif
+
+[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyDescription("A set of fast exporters and importers for FluentMigrator.")]
+[assembly: AssemblyProduct("FluentMigrator Bulk Copiers")]
+[assembly: AssemblyTitle("FluentMigrator.BulkCopiers")]
+
+// Setting ComVisible to false makes the types in this assembly not visible 
+// to COM components.  If you need to access a type in this assembly from 
+// COM, set the ComVisible attribute to true on that type.
+[assembly: ComVisible(false)]
+
+// The following GUID is for the ID of the typelib if this project is exposed to COM
+[assembly: Guid("dbbeec0b-5b36-42ec-ba60-65b9aa6eb1d5")]
