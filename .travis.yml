@@ -4,5 +4,5 @@ install:
 language: csharp
 script:
   - xbuild /p:Configuration=Release ./FluentMigrator.BulkCopiers.sln
-  - mono ./nunit-runner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./src/FluentMigrator.BulkCopiers.UnitTests/bin/Release/FluentMigrator.BulkCopiers.dll
+  - mono ./nunit-runner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./src/FluentMigrator.BulkCopiers.UnitTests/bin/Release/FluentMigrator.BulkCopiers.UnitTests.dll
 solution: ./FluentMigrator.BulkCopiers.sln
