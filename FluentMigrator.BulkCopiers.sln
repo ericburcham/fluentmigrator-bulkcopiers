@@ -20,7 +20,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentMigrator.BulkCopiers"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentMigrator.BulkCopiers.UnitTests", "src\FluentMigrator.BulkCopiers.UnitTests\FluentMigrator.BulkCopiers.UnitTests.csproj", "{CD29D263-8A95-4272-8051-DCC64370E93A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentMigrator.BulkCopiers.IntegrationTests", "FluentMigrator.BulkCopiers.IntegrationTests\FluentMigrator.BulkCopiers.IntegrationTests.csproj", "{4B2B0023-ADA7-43D6-9DA6-C31BFB1D0C19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentMigrator.BulkCopiers.IntegrationTests", "src\FluentMigrator.BulkCopiers.IntegrationTests\FluentMigrator.BulkCopiers.IntegrationTests.csproj", "{4B2B0023-ADA7-43D6-9DA6-C31BFB1D0C19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
