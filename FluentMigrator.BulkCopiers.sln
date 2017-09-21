@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentMigrator.BulkCopiers"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentMigrator.BulkCopiers.UnitTests", "src\FluentMigrator.BulkCopiers.UnitTests\FluentMigrator.BulkCopiers.UnitTests.csproj", "{CD29D263-8A95-4272-8051-DCC64370E93A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentMigrator.BulkCopiers.IntegrationTests", "FluentMigrator.BulkCopiers.IntegrationTests\FluentMigrator.BulkCopiers.IntegrationTests.csproj", "{4B2B0023-ADA7-43D6-9DA6-C31BFB1D0C19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,10 @@ Global
 		{CD29D263-8A95-4272-8051-DCC64370E93A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD29D263-8A95-4272-8051-DCC64370E93A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD29D263-8A95-4272-8051-DCC64370E93A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B2B0023-ADA7-43D6-9DA6-C31BFB1D0C19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B2B0023-ADA7-43D6-9DA6-C31BFB1D0C19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B2B0023-ADA7-43D6-9DA6-C31BFB1D0C19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B2B0023-ADA7-43D6-9DA6-C31BFB1D0C19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
