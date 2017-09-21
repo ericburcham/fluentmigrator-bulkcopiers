@@ -26,6 +26,6 @@ using System.Security;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FluentMigrator.FastDataLoader")]
+[assembly: AssemblyTitle("FluentMigrator.BulkCopiers")]
 [assembly: AssemblyDescription("A set of fast exporters and importers for FluentMigrator.")]
 [assembly: AllowPartiallyTrustedCallers]
