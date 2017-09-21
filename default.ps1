@@ -2,7 +2,7 @@
 $msbuildExe = Get-Item "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe"
 $nugetExe = Get-Item ".\.nuget\nuget.exe"
 $packageDirectory = ".\nuget packages"
-$fasterLoaderProject = ".\src\FluentMigrator.FastDataLoader\FluentMigrator.FastDataLoader.csproj"
+$nugetProject = ".\src\FluentMigrator.FastDataLoader\FluentMigrator.FastDataLoader.csproj"
 $solutionFile = ".\FluentMigrator.FastDataLoader.sln"
 
 
@@ -90,7 +90,7 @@ task CleanAll -description "Runs 'git clean -xdf.'  Prompts first if untracked f
 task Pack -description "Packs FluentMigrator.FastDataLoader as a nuget package." {
     Delete-Directory $packageDirectory
     Create-Directory $packageDirectory
-    exec { & $nugetExe pack $fasterLoaderProject -OutputDirectory $packageDirectory -Prop Configuration=Release -Symbols }
+    exec { & $nugetExe pack $nugetProject -OutputDirectory $packageDirectory -Prop Configuration=Release -Symbols }
 }
 
 task PackWithPrerequisites -description "Packs FluentMigrator.FastDataLoader as a nuget package.  Runs prerequisites first." -depends CleanAll, RestorePackages, BuildDebug, BuildRelease, Pack
