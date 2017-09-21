@@ -2,8 +2,8 @@
 $msbuildExe = Get-Item "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe"
 $nugetExe = Get-Item ".\.nuget\nuget.exe"
 $packageDirectory = ".\nuget packages"
-$nugetProject = ".\src\FluentMigrator.FastDataLoader\FluentMigrator.FastDataLoader.csproj"
-$solutionFile = ".\FluentMigrator.FastDataLoader.sln"
+$nugetProject = ".\src\FluentMigrator.BulkCopiers\FluentMigrator.BulkCopiers.csproj"
+$solutionFile = ".\FluentMigrator.BulkCopiers.sln"
 
 
 
@@ -29,7 +29,7 @@ function Invoke-Compile {
     
     Write-Host "Running Build for solution @" $slnPath -ForegroundColor Cyan
     $config = "Configuration=" + $configuration + ";Platform="+ $platform
-    exec { & $msbuildExe $slnPath /m /nologo /p:$($config) /p:SignAssembly=true /p:AssemblyOriginatorKeyFile=../FluentMigrator.FastDataLoader.snk /t:build /v:m }
+    exec { & $msbuildExe $slnPath /m /nologo /p:$($config) /p:SignAssembly=true /p:AssemblyOriginatorKeyFile=../FluentMigrator.BulkCopiers.snk /t:build /v:m }
 }
 
 function Test-ReparsePoint([string]$path) {
@@ -50,17 +50,17 @@ task BuildAllConfigurations -description "Builds all valid solution configuratio
 
 task BuildAllConfigurationsWithPrerequisites -description "Builds all valid solution configurations.  Runs prerequisites first." -depends CleanAll, RestorePackages, BuildDebug, BuildRelease
 
-task BuildDebug -description "Builds FluentMigrator.FastDataLoader.sln in the debug configuration." {
+task BuildDebug -description "Builds FluentMigrator.BulkCopiers.sln in the debug configuration." {
     Invoke-Compile $SolutionFile "Debug" "Any CPU"
 }
 
-task BuildDebugWithPrerequisites -description "Builds FluentMigrator.FastDataLoader.sln in the debug configuration.  Runs prerequisite steps first." -depends CleanAll, RestorePackages, BuildDebug
+task BuildDebugWithPrerequisites -description "Builds FluentMigrator.BulkCopiers.sln in the debug configuration.  Runs prerequisite steps first." -depends CleanAll, RestorePackages, BuildDebug
 
-task BuildRelease -description "Builds FluentMigrator.FastDataLoader.sln in the release configuration." {
+task BuildRelease -description "Builds FluentMigrator.BulkCopiers.sln in the release configuration." {
     Invoke-Compile $SolutionFile "Release" "Any CPU"
 }
 
-task BuildReleaseWithPrerequisites -description "Builds FluentMigrator.FastDataLoader.sln in the debug configuration.  Runs prerequisite steps first." -depends CleanAll, RestorePackages, BuildRelease
+task BuildReleaseWithPrerequisites -description "Builds FluentMigrator.BulkCopiers.sln in the debug configuration.  Runs prerequisite steps first." -depends CleanAll, RestorePackages, BuildRelease
 
 task CleanAll -description "Runs 'git clean -xdf.'  Prompts first if untracked files are found." {
     $gitStatus = (@(git status --porcelain) | Out-String)
@@ -87,16 +87,16 @@ task CleanAll -description "Runs 'git clean -xdf.'  Prompts first if untracked f
     }
 }
 
-task Pack -description "Packs FluentMigrator.FastDataLoader as a nuget package." {
+task Pack -description "Packs FluentMigrator.BulkCopiers as a nuget package." {
     Delete-Directory $packageDirectory
     Create-Directory $packageDirectory
     exec { & $nugetExe pack $nugetProject -OutputDirectory $packageDirectory -Prop Configuration=Release -Symbols }
 }
 
-task PackWithPrerequisites -description "Packs FluentMigrator.FastDataLoader as a nuget package.  Runs prerequisites first." -depends CleanAll, RestorePackages, BuildDebug, BuildRelease, Pack
+task PackWithPrerequisites -description "Packs FluentMigrator.BulkCopiers as a nuget package.  Runs prerequisites first." -depends CleanAll, RestorePackages, BuildDebug, BuildRelease, Pack
 
-task Push -description "Pushes FluentMigrator.FastDataLoader to nuget.org." {
-    $packages = Get-ChildItem $packageDirectory\FluentMigrator.FastDataLoader.*.nupkg
+task Push -description "Pushes FluentMigrator.BulkCopiers to nuget.org." {
+    $packages = Get-ChildItem $packageDirectory\FluentMigrator.BulkCopiers.*.nupkg
     foreach ($package in $packages)
     {
         exec { & $nugetExe push $package.FullName -Source https://www.nuget.org/api/v2/package }
@@ -109,6 +109,6 @@ task RestorePackages -description "Restores all nuget packages in the solution."
     exec { & $nugetExe restore $solutionFile }
 }
 
-task Start:VisualStudio -description "Opens FluentMigrator.FastDataLoader.sln in Visual Studio" {
-    Invoke-Item .\Source\FluentMigrator.FastDataLoader.sln
+task Start:VisualStudio -description "Opens FluentMigrator.BulkCopiers.sln in Visual Studio" {
+    Invoke-Item .\Source\FluentMigrator.BulkCopiers.sln
 }
