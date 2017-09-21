@@ -10,6 +10,13 @@ ProjectSection(SolutionItems) = preProject
 	src\FluentMigrator.FastDataLoader.snk = src\FluentMigrator.FastDataLoader.snk
 EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{DEAE84A1-989D-427D-80A8-CA6C6BBA2078}"
+ProjectSection(SolutionItems) = preProject
+	.nuget\nuget.config = .nuget\nuget.config
+	.nuget\nuget.exe = .nuget\nuget.exe
+	.nuget\nuget.targets = .nuget\nuget.targets
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
