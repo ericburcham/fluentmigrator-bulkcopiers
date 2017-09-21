@@ -67,6 +67,12 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FluentMigrator.BulkCopiers\FluentMigrator.BulkCopiers.csproj">
+      <Project>{454bb3cd-3d4d-4f9a-b8e0-97095d177818}</Project>
+      <Name>FluentMigrator.BulkCopiers</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
