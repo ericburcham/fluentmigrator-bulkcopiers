@@ -19,26 +19,38 @@ namespace FluentMigrator.BulkCopiers.IntegrationTests.Processors.SqlServer
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                var command = new SqlCommand(Constants.SqlServer.CREATE_DATABASE_QUERY, connection)
+                connection.Open();
+                var dropCommand = new SqlCommand(Constants.SqlServer.DROP_DATABASE_QUERY, connection)
                 {
                     CommandType = CommandType.Text
                 };
-                command.Connection.Open();
-                command.ExecuteNonQuery();
+                dropCommand.ExecuteNonQuery();
+                dropCommand.Dispose();
+                
+                var createCommand = new SqlCommand(Constants.SqlServer.CREATE_DATABASE_QUERY, connection)
+                {
+                    CommandType = CommandType.Text
+                };
+                createCommand.ExecuteNonQuery();
+                createCommand.Dispose();
+                connection.Close();
             }
         }
 
         [OneTimeTearDown]
         public void OneTimeTearDown()
         {
+            SqlConnection.ClearAllPools();
             using (var connection = new SqlConnection(_connectionString))
             {
-                var command = new SqlCommand(Constants.SqlServer.DROP_DATABASE_QUERY, connection)
+                connection.Open();
+                using (var command = connection.CreateCommand())
                 {
-                    CommandType = CommandType.Text
-                };
-                command.Connection.Open();
-                command.ExecuteNonQuery();
+                    command.CommandText = Constants.SqlServer.DROP_DATABASE_QUERY;
+                    command.CommandType = CommandType.Text;
+                    command.ExecuteNonQuery();
+                }
+                connection.Close();
             }
         }
     }

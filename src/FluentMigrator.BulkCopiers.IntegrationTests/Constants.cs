@@ -8,7 +8,7 @@
 
             public const string DATABASE_NAME = "FluentMigrator_BulkCopiers";
             
-            public static string DROP_DATABASE_QUERY = "DROP DATABASE " + DATABASE_NAME + ";";
+            public static string DROP_DATABASE_QUERY = "DROP DATABASE IF EXISTS " + DATABASE_NAME + ";";
         }
     }
 }
