@@ -2,7 +2,7 @@
 using System.Data.SqlClient;
 using NUnit.Framework;
 
-namespace FluentMigrator.BulkCopiers.IntegrationTests.Processors.SqlServer
+namespace FluentMigrator.BulkCopiers.IntegrationTests.Extractors.SqlServer
 {
     [SetUpFixture]
     public class SqlServerSetupFixture

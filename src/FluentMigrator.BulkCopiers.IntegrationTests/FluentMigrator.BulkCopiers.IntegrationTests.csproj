@@ -69,8 +69,8 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="IntegrationTestOptions.cs" />
-    <Compile Include="Processors\SqlServer\SqlServerSetupFixture.cs" />
-    <Compile Include="Processors\SqlServer\SqlServerTableExtractorTests\When_Extract_Is_Invoked.cs" />
+    <Compile Include="Extractors\SqlServer\SqlServerSetupFixture.cs" />
+    <Compile Include="Extractors\SqlServer\SqlServerTableExtractorTests\When_Extract_Is_Invoked.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

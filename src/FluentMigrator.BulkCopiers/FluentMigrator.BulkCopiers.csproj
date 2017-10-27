@@ -50,11 +50,11 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="BinaryPersister.cs" />
-    <Compile Include="IExtractTabularData.cs" />
-    <Compile Include="IPersistTabularData.cs" />
+    <Compile Include="Extractors\IExtractTabularData.cs" />
+    <Compile Include="Extractors\IPersistTabularData.cs" />
+    <Compile Include="Extractors\Persisters\BinaryPersister.cs" />
+    <Compile Include="Extractors\SqlServer\SqlServerTableExtractor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SqlServerTableExtractor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\FluentMigrator.BulkCopiers.snk">

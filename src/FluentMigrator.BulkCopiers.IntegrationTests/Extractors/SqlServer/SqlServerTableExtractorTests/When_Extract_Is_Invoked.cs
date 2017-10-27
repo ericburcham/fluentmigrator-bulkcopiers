@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Text;
-using FluentAssertions;
 using FluentMigrator.Runner;
 using FluentMigrator.Runner.Announcers;
 using FluentMigrator.Runner.Generators.SqlServer;
@@ -13,7 +12,7 @@ using FluentMigrator.Runner.Processors;
 using FluentMigrator.Runner.Processors.SqlServer;
 using NUnit.Framework;
 
-namespace FluentMigrator.BulkCopiers.IntegrationTests.Processors.SqlServer.SqlServerTableExtractorTests
+namespace FluentMigrator.BulkCopiers.IntegrationTests.Extractors.SqlServer.SqlServerTableExtractorTests
 {
     [TestFixture]
     public class When_Extract_Is_Invoked
@@ -22,7 +21,9 @@ namespace FluentMigrator.BulkCopiers.IntegrationTests.Processors.SqlServer.SqlSe
         private MigrationRunner _runner;
 
         private Assembly Assembly => Type.Assembly;
+
         private string Namespace => Type.Namespace;
+
         private Type Type => _type ?? (_type = GetType());
 
         private SqlConnection _connection;
@@ -40,11 +41,11 @@ namespace FluentMigrator.BulkCopiers.IntegrationTests.Processors.SqlServer.SqlSe
             // Red
             // Green
             // Refactor
-            
+
             // Configure runner
             _connection = new SqlConnection(IntegrationTestOptions.SqlServer.ConnectionString);
             _connection.Open();
-            
+
             var generator = new SqlServer2014Generator();
             var announcer = new TextWriterAnnouncer(new DebugTextWriter());
             var options = new ProcessorOptions();
@@ -55,17 +56,17 @@ namespace FluentMigrator.BulkCopiers.IntegrationTests.Processors.SqlServer.SqlSe
                 Namespace = Namespace
             };
             _runner = new MigrationRunner(Assembly, runnerContext, _processor);
-            
+
             // Create supporting schema and data.
             _runner.Up(new SupportingMigration());
-            
+
             // Execute
             var path = Directory.GetCurrentDirectory();
             IPersistTabularData persister = new BinaryPersister();
             IExtractTabularData extractor = new SqlServerTableExtractor(_connection, persister, "Sales", "Customers");
             extractor.Extract(path);
         }
-        
+
         [Test]
         public void The_Persisted_DataTable_Should_Be_Valid()
         {
@@ -123,17 +124,38 @@ namespace FluentMigrator.BulkCopiers.IntegrationTests.Processors.SqlServer.SqlSe
             }
 
             public override bool CanRead => false;
+
             public override bool CanSeek => false;
+
             public override bool CanWrite => true;
-            public override void Flush() { Debug.Flush(); }
+
+            public override void Flush()
+            {
+                Debug.Flush();
+            }
+
             public override long Length => throw new InvalidOperationException();
-            public override int Read(byte[] buffer, int offset, int count) { throw new InvalidOperationException(); }
-            public override long Seek(long offset, SeekOrigin origin) { throw new InvalidOperationException(); }
-            public override void SetLength(long value) { throw new InvalidOperationException(); }
+
+            public override int Read(byte[] buffer, int offset, int count)
+            {
+                throw new InvalidOperationException();
+            }
+
+            public override long Seek(long offset, SeekOrigin origin)
+            {
+                throw new InvalidOperationException();
+            }
+
+            public override void SetLength(long value)
+            {
+                throw new InvalidOperationException();
+            }
+
             public override long Position
             {
                 get => throw new InvalidOperationException();
                 set => throw new InvalidOperationException();
             }
         };
-    }}
+    }
+}
