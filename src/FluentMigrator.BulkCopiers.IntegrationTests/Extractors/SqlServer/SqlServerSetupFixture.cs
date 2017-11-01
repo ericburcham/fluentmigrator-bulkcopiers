@@ -20,14 +20,14 @@ namespace FluentMigrator.BulkCopiers.IntegrationTests.Extractors.SqlServer
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                var dropCommand = new SqlCommand(Constants.SqlServer.DROP_DATABASE_QUERY, connection)
+                var dropCommand = new SqlCommand(Constants.SqlServer.DROP_DATABASE_COMMAND, connection)
                 {
                     CommandType = CommandType.Text
                 };
                 dropCommand.ExecuteNonQuery();
                 dropCommand.Dispose();
                 
-                var createCommand = new SqlCommand(Constants.SqlServer.CREATE_DATABASE_QUERY, connection)
+                var createCommand = new SqlCommand(Constants.SqlServer.CREATE_DATABASE_COMMAND, connection)
                 {
                     CommandType = CommandType.Text
                 };
@@ -46,7 +46,7 @@ namespace FluentMigrator.BulkCopiers.IntegrationTests.Extractors.SqlServer
                 connection.Open();
                 using (var command = connection.CreateCommand())
                 {
-                    command.CommandText = Constants.SqlServer.DROP_DATABASE_QUERY;
+                    command.CommandText = Constants.SqlServer.DROP_DATABASE_COMMAND;
                     command.CommandType = CommandType.Text;
                     command.ExecuteNonQuery();
                 }
